@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
   --font-serif: "Playfair Display", serif;
@@ -25,6 +27,7 @@
     --bg-surface: rgba(255, 255, 255, 0.4);
     --bg-surface-hover: rgba(255, 255, 255, 0.6);
     --border-color: rgba(61, 64, 91, 0.1);
+    --bg-secondary: #F4F1DE;
   }
 
   .dark {
@@ -33,6 +36,7 @@
     --bg-surface: rgba(45, 49, 75, 0.4);
     --bg-surface-hover: rgba(45, 49, 75, 0.6);
     --border-color: rgba(244, 241, 222, 0.1);
+    --bg-secondary: #2A2E45;
   }
 
   body {
@@ -62,7 +66,8 @@
     bottom: 0;
     z-index: -1;
     overflow: hidden;
-    background: radial-gradient(circle at 50% 50%, var(--bg-primary), #F4F1DE);
+    background: radial-gradient(circle at 50% 50%, var(--bg-primary), var(--bg-secondary));
+    transition: background 0.5s ease;
   }
 
   .orb {

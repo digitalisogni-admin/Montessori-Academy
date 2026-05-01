@@ -34,20 +34,20 @@ export default function Contact() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-xs font-bold uppercase tracking-widest text-brand-text/50">{t.name}</label>
-                  <input type="text" required className="w-full px-5 py-4 bg-white/40 border border-white/50 rounded-2xl focus:outline-none focus:ring-2 focus:ring-montessori-red text-brand-text shadow-inner transition-all placeholder:text-brand-text/30" placeholder="Jean Dupont" />
+                  <input type="text" required className="w-full px-5 py-4 bg-surface-hover border border-border/50 rounded-2xl focus:outline-none focus:ring-2 focus:ring-montessori-red text-brand-text shadow-inner transition-all placeholder:text-brand-text/30" placeholder="Jean Dupont" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-xs font-bold uppercase tracking-widest text-brand-text/50">{t.email}</label>
-                  <input type="email" required className="w-full px-5 py-4 bg-white/40 border border-white/50 rounded-2xl focus:outline-none focus:ring-2 focus:ring-montessori-red text-brand-text shadow-inner transition-all placeholder:text-brand-text/30" placeholder="jean@example.com" />
+                  <input type="email" required className="w-full px-5 py-4 bg-surface-hover border border-border/50 rounded-2xl focus:outline-none focus:ring-2 focus:ring-montessori-red text-brand-text shadow-inner transition-all placeholder:text-brand-text/30" placeholder="jean@example.com" />
                 </div>
               </div>
               <div className="space-y-2">
                 <label className="text-xs font-bold uppercase tracking-widest text-brand-text/50">{t.subject}</label>
-                <input type="text" required className="w-full px-5 py-4 bg-white/40 border border-white/50 rounded-2xl focus:outline-none focus:ring-2 focus:ring-montessori-red text-brand-text shadow-inner transition-all placeholder:text-brand-text/30" placeholder="Comment pouvons-nous vous aider ?" />
+                <input type="text" required className="w-full px-5 py-4 bg-surface-hover border border-border/50 rounded-2xl focus:outline-none focus:ring-2 focus:ring-montessori-red text-brand-text shadow-inner transition-all placeholder:text-brand-text/30" placeholder="Comment pouvons-nous vous aider ?" />
               </div>
               <div className="space-y-2">
                 <label className="text-xs font-bold uppercase tracking-widest text-brand-text/50">{t.message}</label>
-                <textarea required rows={5} className="w-full px-5 py-4 bg-white/40 border border-white/50 rounded-2xl focus:outline-none focus:ring-2 focus:ring-montessori-red text-brand-text shadow-inner transition-all resize-none placeholder:text-brand-text/30" placeholder="Votre message..."></textarea>
+                <textarea required rows={5} className="w-full px-5 py-4 bg-surface-hover border border-border/50 rounded-2xl focus:outline-none focus:ring-2 focus:ring-montessori-red text-brand-text shadow-inner transition-all resize-none placeholder:text-brand-text/30" placeholder="Votre message..."></textarea>
               </div>
               <button type="submit" className="w-full bg-montessori-blue text-montessori-cream font-bold py-5 rounded-2xl flex justify-center items-center gap-3 hover:opacity-90 transition-opacity shadow-lg mt-4 group">
                 {t.send}

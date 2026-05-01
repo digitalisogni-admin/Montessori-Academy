@@ -42,7 +42,7 @@ export default function AboutTeacher() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 + i * 0.1, duration: 0.6 }}
-                className="flex items-start gap-6 p-8 rounded-[32px] glass hover:bg-white/40 border border-white/30 hover:border-white/60 transition-all shadow-sm group"
+                className="flex items-start gap-6 p-8 rounded-[32px] glass glass-hover transition-all shadow-sm group"
               >
                 <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-white/50 flex items-center justify-center shadow-inner group-hover:scale-110 transition-transform">
                   <div className={iconColors[i % iconColors.length]}>

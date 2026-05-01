@@ -26,7 +26,7 @@ function SubjectCard({ id, title, description, concepts, icon, colorClass, delay
         className={`relative p-10 rounded-[32px] h-full flex flex-col gap-6 overflow-hidden shadow-sm glass glass-hover transition-all duration-500 hover:shadow-xl ${colorClass}`}
       >
         <div className="flex items-center justify-between">
-          <div className="w-16 h-16 rounded-3xl bg-white/40 flex items-center justify-center text-brand-text shadow-inner transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
+          <div className="w-16 h-16 rounded-3xl bg-surface flex items-center justify-center text-brand-text shadow-inner transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3 border border-border/50">
             {icon}
           </div>
           <div className="w-10 h-10 rounded-full flex items-center justify-center bg-transparent border border-brand-text/10 text-brand-text/50 group-hover:bg-brand-text group-hover:text-brand-bg transition-all duration-300 transform group-hover:translate-x-1 group-hover:-translate-y-1">

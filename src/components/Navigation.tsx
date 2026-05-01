@@ -6,6 +6,7 @@ import { useTheme } from '../contexts/ThemeContext';
 import { translations } from '../i18n/translations';
 import { useState } from 'react';
 import SearchModal from './SearchModal';
+import logoUrl from '../assets/logo1.png';
 
 export default function Navigation() {
   const location = useLocation();
@@ -28,7 +29,7 @@ export default function Navigation() {
         <div className="container mx-auto px-8 lg:px-12">
           <div className="flex items-center justify-between">
             <Link to="/" className="font-serif text-[24px] font-bold tracking-tight text-brand-text flex items-center gap-3 md:gap-4">
-              <img src="/logo1.png" alt="Accademia Montessori Logo" className="h-16 w-16 md:h-20 md:w-20 rounded-full object-cover shadow-sm" />
+              <img src={logoUrl} alt="Accademia Montessori Logo" className="h-16 w-16 md:h-20 md:w-20 rounded-full object-cover shadow-sm" />
               <span>Accademia<span className="font-normal opacity-70">Montessori</span></span>
             </Link>
             
