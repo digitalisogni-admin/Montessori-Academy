@@ -5,10 +5,24 @@ import VirtualLabPreview from '../components/VirtualLabPreview';
 import DailyChallenge from '../components/DailyChallenge';
 import { Telescope } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useSEO } from '../hooks/useSEO';
 
 export default function Resources() {
   const { language } = useLanguage();
   
+  useSEO({
+    title: {
+      fr: 'Ressources',
+      en: 'Resources',
+      it: 'Risorse'
+    },
+    description: {
+      fr: 'Découvrez tous nos outils interactifs, laboratoires virtuels, podcasts et leçons pour apprendre autrement et à votre rythme.',
+      en: 'Discover all our interactive tools, virtual laboratories, podcasts and lessons to learn differently and at your own pace.',
+      it: 'Scopri tutti i nostri strumenti interattivi, laboratori virtuali, podcast e lezioni per imparare diversamente e al tuo ritmo.'
+    }
+  });
+
   const translations = {
     fr: {
       title1: "Explorer.",

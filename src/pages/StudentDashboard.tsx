@@ -8,11 +8,25 @@ import StudentCalendar from '../components/StudentCalendar';
 import CommunityNotes from '../components/CommunityNotes';
 import Leaderboard from '../components/Leaderboard';
 import WorkspaceTools from '../components/WorkspaceTools';
+import { useSEO } from '../hooks/useSEO';
 
 export default function StudentDashboard() {
   const { language } = useLanguage();
   const t = translations[language].studentDashboard;
   const common = translations[language].subjectPage;
+
+  useSEO({
+    title: {
+      fr: 'Espace Élève',
+      en: 'Student Dashboard',
+      it: 'Area Studente'
+    },
+    description: {
+      fr: 'Accédez à votre espace élève, suivez votre progression et retrouvez tous vos outils d\'apprentissage.',
+      en: 'Access your student dashboard, track your progress and find all your learning tools.',
+      it: 'Accedi alla tua area studente, segui i tuoi progressi e trova tutti i tuoi strumenti di apprendimento.'
+    }
+  });
 
   return (
     <div className="pt-32 pb-24 min-h-screen bg-brand-bg transition-colors duration-300">

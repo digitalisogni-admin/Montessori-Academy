@@ -2,10 +2,24 @@ import { motion } from 'motion/react';
 import { Send, MapPin, Mail, Phone, Eye } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { translations } from '../i18n/translations';
+import { useSEO } from '../hooks/useSEO';
 
 export default function Contact() {
   const { language } = useLanguage();
   const t = translations[language].contactLocal;
+
+  useSEO({
+    title: {
+      fr: 'Contact',
+      en: 'Contact',
+      it: 'Contatto'
+    },
+    description: {
+      fr: 'Une question ? Un projet ? N\'hésitez pas à nous contacter. Nous sommes là pour vous aider dans votre parcours éducatif.',
+      en: 'A question? A project? Don\'t hesitate to contact us. We are here to help you in your educational journey.',
+      it: 'Una domanda? Un progetto? Non esitare a contattarci. Siamo qui per aiutarti nel tuo percorso educativo.'
+    }
+  });
 
   return (
     <motion.main 

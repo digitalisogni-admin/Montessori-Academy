@@ -2,9 +2,23 @@ import { motion } from 'motion/react';
 import AboutTeacher from '../components/AboutTeacher';
 import { Leaf } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useSEO } from '../hooks/useSEO';
 
 export default function Pedagogy() {
   const { language } = useLanguage();
+
+  useSEO({
+    title: {
+      fr: 'Pédagogie',
+      en: 'Pedagogy',
+      it: 'Pedagogia'
+    },
+    description: {
+      fr: 'Découvrez notre approche pédagogique bienveillante, active et centrée sur la réussite de chaque élève, inspirée de la méthode Montessori.',
+      en: 'Discover our caring, active pedagogical approach centered on the success of each student, inspired by the Montessori method.',
+      it: 'Scopri il nostro approccio pedagogico attento, attivo e centrato sul successo di ogni studente, ispirato al metodo Montessori.'
+    }
+  });
 
   const translations = {
     fr: {

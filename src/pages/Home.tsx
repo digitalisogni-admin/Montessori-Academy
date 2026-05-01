@@ -7,8 +7,22 @@ import InteractiveToolPreview from '../components/InteractiveToolPreview';
 import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
 import Newsletter from '../components/Newsletter';
+import { useSEO } from '../hooks/useSEO';
 
 export default function Home() {
+  useSEO({
+    title: {
+      fr: 'Accueil',
+      en: 'Home',
+      it: 'Home'
+    },
+    description: {
+      fr: 'Découvrez des ressources pédagogiques interactives, laboratoires virtuels et leçons pour apprendre autrement.',
+      en: 'Discover interactive educational resources, virtual labs, and lessons to learn differently.',
+      it: 'Scopri risorse educative interattive, laboratori virtuali e lezioni per imparare diversamente.'
+    }
+  });
+
   return (
     <main>
       <Hero />

@@ -3,10 +3,24 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft, Ghost } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { translations } from '../i18n/translations';
+import { useSEO } from '../hooks/useSEO';
 
 export default function NotFound() {
   const { language } = useLanguage();
   const t = translations[language].subjectPage; // Reuse backHome string
+  
+  useSEO({
+    title: {
+      fr: 'Page non trouvée (404)',
+      en: 'Page not found (404)',
+      it: 'Pagina non trovata (404)'
+    },
+    description: {
+      fr: 'La page que vous recherchez n\'existe pas.',
+      en: 'The page you are looking for does not exist.',
+      it: 'La pagina che stai cercando non esiste.'
+    }
+  });
 
   return (
     <div className="min-h-screen bg-brand-bg flex items-center justify-center p-6 relative overflow-hidden">

@@ -1,9 +1,23 @@
 import { motion } from 'motion/react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useSEO } from '../hooks/useSEO';
 
 export default function Legal() {
   const { language } = useLanguage();
   
+  useSEO({
+    title: {
+      fr: 'Mentions Légales',
+      en: 'Legal Notice',
+      it: 'Note Legali'
+    },
+    description: {
+      fr: 'Informations légales et conditions d\'utilisation du site Accademia Montessori.',
+      en: 'Legal information and terms of use of the Accademia Montessori website.',
+      it: 'Informazioni legali e condizioni d\'uso del sito Accademia Montessori.'
+    }
+  });
+
   const translations = {
     fr: {
       title: "Mentions Légales",

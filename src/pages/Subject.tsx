@@ -6,6 +6,7 @@ import { translations } from '../i18n/translations';
 import QuizPreview from '../components/QuizPreview';
 import Flashcards from '../components/Flashcards';
 import { useState } from 'react';
+import { useSEO } from '../hooks/useSEO';
 
 export default function SubjectPage() {
   const { id } = useParams<{ id: string }>();
@@ -47,6 +48,19 @@ export default function SubjectPage() {
   };
 
   const subject = id ? getSubjectDetails(id) : null;
+
+  useSEO({
+    title: {
+      fr: subject ? subject.title : 'Matière non trouvée',
+      en: subject ? subject.title : 'Subject not found',
+      it: subject ? subject.title : 'Materia non trovata'
+    },
+    description: {
+      fr: subject ? subject.description : 'Découvrez nos ressources Montessori.',
+      en: subject ? subject.description : 'Discover our Montessori resources.',
+      it: subject ? subject.description : 'Scopri le nostre risorse Montessori.'
+    }
+  });
 
   if (!subject) {
     return (
