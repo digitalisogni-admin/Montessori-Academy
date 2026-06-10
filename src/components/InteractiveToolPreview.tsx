@@ -4,6 +4,7 @@ import { Sparkles, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { useRef } from 'react';
+import OptimizedImage from './OptimizedImage';
 
 export default function InteractiveToolPreview() {
   const { language } = useLanguage();
@@ -48,10 +49,10 @@ export default function InteractiveToolPreview() {
         style={{ y }}
         className="absolute inset-0 z-0"
       >
-        <img 
+        <OptimizedImage
           src="https://images.unsplash.com/photo-1635316131802-f3fcd426d1d4?q=80&w=3840&auto=format&fit=crop" 
           alt="Science Background" 
-          className="w-full h-full object-cover opacity-30"
+          className="w-full h-full opacity-30 absolute inset-0"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-brand-bg via-brand-bg/80 to-brand-bg" />
       </motion.div>

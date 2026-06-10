@@ -24,11 +24,22 @@ export default function Hero() {
         style={{ y, opacity }}
         className="absolute inset-0 z-0"
       >
-        <img 
-          src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=3840&auto=format&fit=crop" 
-          alt="Teacher background" 
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
           className="w-full h-full object-cover opacity-60"
-        />
+          poster="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=3840&auto=format&fit=crop"
+        >
+          <source src="https://cdn.pixabay.com/video/2019/04/18/22822-331575017_large.mp4" type="video/mp4" />
+          {/* Fallback image if video fails to load */}
+          <img
+            src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=3840&auto=format&fit=crop"
+            alt="Teacher background"
+            className="w-full h-full object-cover opacity-60"
+          />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-brand-bg/90" />
       </motion.div>
 
