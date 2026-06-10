@@ -32,3 +32,14 @@ Here is a list of features that can be implemented to bring the full vision of t
 28. **Homework Bidding System**: Students can put bounties (using karma points) on particularly hard homework questions for quick peer assistance.
 29. **Coding Sandbox Terminal**: Expanding the virtual lab to include an interactive Python/JS terminal for introductory computer science lessons.
 30. **Mental Health & Breathing Breaks**: Interstitial mini-activities that prompt students to do a 1-minute box breathing exercise before difficult exams.
+
+31. **Video Background Hero**: Enhance the main landing page with an engaging, auto-playing video background to capture attention immediately without sacrificing load time.
+32. **Web Worker for Expensive Computations**: Offload heavy computations (like grading algorithms or search indexing) to Web Workers to keep the main thread unblocked.
+33. **Intelligent Prefetching for Course Modules**: Use IntersectionObserver and idle callbacks to intelligently prefetch upcoming lesson data based on the student's scroll position.
+34. **Optimized Image Pipeline (WebP/AVIF)**: Automatically convert and serve all educational assets in modern formats (WebP/AVIF) depending on browser support, drastically cutting bandwidth.
+35. **React.lazy Code Splitting on Route Level**: Aggressively code-split the application routes so the initial bundle size is minimized, and specific tools (like the Virtual Lab) are only loaded when requested.
+36. **Debounced Global Search Context**: Enhance the global search functionality by adding strict debouncing, caching recent query results, and preventing unnecessary API calls while typing.
+37. **Virtualization for Community Notes/Flashcards**: Implement a virtualized list (e.g., using `react-window`) for long lists of flashcards or community notes, preventing DOM bloat.
+38. **Service Worker Caching Strategies**: Establish robust stale-while-revalidate and Cache-First strategies for static assets (like icons, CSS, and structural JSONs) to enable near-instant repeat visits.
+39. **State Colocation to Prevent Global Re-renders**: Refactor contexts (like Language/Theme) and place specific state slices closer to where they are used to prevent unnecessary app-wide re-renders.
+40. **Optimized Animations with CSS Transforms**: Ensure all complex `framer-motion` animations strictly utilize `transform` and `opacity` properties to trigger hardware acceleration, keeping animations at 60fps.
