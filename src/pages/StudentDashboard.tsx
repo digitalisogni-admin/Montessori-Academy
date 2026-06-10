@@ -2,7 +2,8 @@ import { motion } from 'motion/react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { translations } from '../i18n/translations';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, BookOpen, Clock, Activity, Award, CheckCircle } from 'lucide-react';
+import { ArrowLeft, BookOpen, Clock, Activity, Award, CheckCircle, Cpu } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
 import PomodoroTimer from '../components/PomodoroTimer';
 import StudentCalendar from '../components/StudentCalendar';
 import CommunityNotes from '../components/CommunityNotes';
@@ -14,6 +15,35 @@ export default function StudentDashboard() {
   const { language } = useLanguage();
   const t = translations[language].studentDashboard;
   const common = translations[language].subjectPage;
+
+  // Web Worker Mock State
+  const [workerResult, setWorkerResult] = useState<string | null>(null);
+  const [isWorkerRunning, setIsWorkerRunning] = useState(false);
+  const workerRef = useRef<Worker | null>(null);
+
+  useEffect(() => {
+    // Initialize Web Worker
+    workerRef.current = new Worker(new URL('../workers/heavyComputation.ts', import.meta.url), { type: 'module' });
+
+    workerRef.current.onmessage = (e) => {
+      if (e.data.type === 'TASK_COMPLETE') {
+        setIsWorkerRunning(false);
+        setWorkerResult(`Mock Task Complete! Result: ${e.data.result}`);
+      }
+    };
+
+    return () => {
+      workerRef.current?.terminate();
+    };
+  }, []);
+
+  const runHeavyTask = () => {
+    if (workerRef.current && !isWorkerRunning) {
+      setIsWorkerRunning(true);
+      setWorkerResult(null);
+      workerRef.current.postMessage({ type: 'START_HEAVY_TASK', data: [1, 2, 3] });
+    }
+  };
 
   useSEO({
     title: {
@@ -138,6 +168,34 @@ export default function StudentDashboard() {
             </motion.div>
           </div>
         </div>
+
+        {/* Web Worker Demo Area */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.55 }}
+          className="mb-12 bg-surface rounded-3xl p-6 border border-border flex flex-col md:flex-row items-center justify-between gap-4"
+        >
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 bg-purple-100 text-purple-700 dark:bg-purple-900/20 dark:text-purple-400 rounded-2xl flex items-center justify-center">
+              <Cpu className={`w-6 h-6 ${isWorkerRunning ? 'animate-pulse' : ''}`} />
+            </div>
+            <div>
+              <h3 className="font-bold text-lg text-brand-text">Web Worker Demo</h3>
+              <p className="text-sm text-brand-text/60">Non-blocking background computation mock.</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-4">
+            {workerResult && <span className="text-sm font-medium text-green-600 dark:text-green-400">{workerResult}</span>}
+            <button
+              onClick={runHeavyTask}
+              disabled={isWorkerRunning}
+              className="px-6 py-3 bg-brand-text text-brand-bg rounded-xl font-bold hover:scale-105 transition-transform disabled:opacity-50 disabled:hover:scale-100"
+            >
+              {isWorkerRunning ? 'Processing in BG...' : 'Run Heavy Task'}
+            </button>
+          </div>
+        </motion.div>
 
         {/* Row 4: Activité Récente, Classement */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
